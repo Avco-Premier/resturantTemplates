@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avco Premier Website Template System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --avco-blue: #0066ff;
+            --avco-blue-dark: #0052cc;
+            --avco-blue-light: #3385ff;
+            --bg-dark: #0a0e17;
+            --bg-card: #111827;
+            --bg-card-hover: #1a2332;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --border: rgba(255, 255, 255, 0.10);
+            --border-hover: rgba(255, 255, 255, 0.20);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 102, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 102, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--avco-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            color: var(--avco-blue);
+        }
+
+        .header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Template Cards */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .template-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-card:hover {
+            border-color: var(--avco-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .template-preview {
+            aspect-ratio: 16/10;
+            background: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .template-preview-inner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.1);
+        }
+
+        /* Template 1 - Refined */
+        .template-1 .template-preview-inner {
+            background: linear-gradient(135deg, #3c342f 0%, #5a4d42 100%);
+            color: rgba(255,255,255,0.15);
+        }
+
+        /* Template 2 - Bold */
+        .template-2 .template-preview-inner {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-left: 4px solid #e63527;
+            color: rgba(230, 53, 39, 0.2);
+        }
+
+        /* Template 3 - Vintage */
+        .template-3 .template-preview-inner {
+            background: linear-gradient(135deg, #722f37 0%, #5a252c 100%);
+            color: rgba(221, 161, 94, 0.25);
+        }
+
+        .template-card:hover .template-preview-inner {
+            transform: scale(1.02);
+        }
+
+        .template-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--avco-blue);
+            margin-bottom: 8px;
+        }
+
+        .template-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .template-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .template-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            color: var(--avco-blue-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .view-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--avco-blue);
+            color: white;
+            padding: 14px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .template-card:hover .view-btn {
+            background: var(--avco-blue-light);
+        }
+
+        .view-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .template-card:hover .view-btn svg {
+            transform: translateX(3px);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-header {
+            padding: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .comparison-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 102, 255, 0.05);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .comparison-table th:first-child {
+            width: 140px;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .template-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .template-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .template-dot.t1 { background: #8b7355; }
+        .template-dot.t2 { background: #e63527; }
+        .template-dot.t3 { background: #722f37; }
+
+        /* Best For Row */
+        .best-for-cell {
+            font-style: italic;
+            color: var(--avco-blue-light) !important;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--avco-blue);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .templates-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .comparison-header {
+                padding: 20px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 14px 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">A</div>
+                <div class="logo-text">Avco <span>Premier</span></div>
+            </div>
+            <h1>Website Template System</h1>
+            <p>Choose a template style for your restaurant. Each design is fully customizable.</p>
+        </header>
+
+        <!-- Template Cards -->
+        <div class="templates-grid">
+            <!-- Template 1 -->
+            <a href="temp1.html" class="template-card template-1">
+                <div class="template-preview">
+                    <div class="template-preview-inner">01</div>
+                </div>
+                <div class="template-content">
+                    <span class="template-number">Template 01</span>
+                    <h3 class="template-name">Refined Parallax</h3>
+                    <p class="template-description">Elegant scrolling effects with warm tones and sophisticated serif typography.</p>
+                    <div class="template-tags">
+                        <span class="tag">Fine Dining</span>
+                        <span class="tag">Wine Bars</span>
+                    </div>
+                </div>
+                <div class="view-btn">
+                    View Template
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Template 2 -->
+            <a href="temp2.html" class="template-card template-2">
+                <div class="template-preview">
+                    <div class="template-preview-inner">02</div>
+                </div>
+                <div class="template-content">
+                    <span class="template-number">Template 02</span>
+                    <h3 class="template-name">Bold Modern</h3>
+                    <p class="template-description">High-contrast design with geometric layouts and contemporary energy.</p>
+                    <div class="template-tags">
+                        <span class="tag">Fast-Casual</span>
+                        <span class="tag">Urban Spots</span>
+                    </div>
+                </div>
+                <div class="view-btn">
+                    View Template
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Template 3 -->
+            <a href="temp3.html" class="template-card template-3">
+                <div class="template-preview">
+                    <div class="template-preview-inner">03</div>
+                </div>
+                <div class="template-content">
+                    <span class="template-number">Template 03</span>
+                    <h3 class="template-name">Vintage Classic</h3>
+                    <p class="template-description">Old-world charm with rich colors, elegant borders, and nostalgic warmth.</p>
+                    <div class="template-tags">
+                        <span class="tag">Family Restaurants</span>
+                        <span class="tag">Classic Pizzerias</span>
+                    </div>
+                </div>
+                <div class="view-btn">
+                    View Template
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <div class="comparison-header">
+                <h2>Template Comparison</h2>
+                <p>A quick overview of each template's design characteristics</p>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th><span class="template-indicator"><span class="template-dot t1"></span> Refined Parallax</span></th>
+                        <th><span class="template-indicator"><span class="template-dot t2"></span> Bold Modern</span></th>
+                        <th><span class="template-indicator"><span class="template-dot t3"></span> Vintage Classic</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Typography</td>
+                        <td>Cormorant Garamond + Montserrat</td>
+                        <td>Bebas Neue + DM Sans</td>
+                        <td>Playfair Display + Lora</td>
+                    </tr>
+                    <tr>
+                        <td>Color Palette</td>
+                        <td>Warm browns, cream, gold</td>
+                        <td>Black, red, cream, green</td>
+                        <td>Burgundy, cream, olive, gold</td>
+                    </tr>
+                    <tr>
+                        <td>Layout Style</td>
+                        <td>Parallax scrolling, centered</td>
+                        <td>Grid-based, asymmetric</td>
+                        <td>Traditional, framed elements</td>
+                    </tr>
+                    <tr>
+                        <td>Vibe</td>
+                        <td>Upscale trattoria</td>
+                        <td>Contemporary NYC pizzeria</td>
+                        <td>Old-world Italian warmth</td>
+                    </tr>
+                    <tr>
+                        <td>Key Elements</td>
+                        <td>Soft overlays, nav dots, serifs</td>
+                        <td>Outlined text, marquee, stats</td>
+                        <td>Decorative borders, textures</td>
+                    </tr>
+                    <tr>
+                        <td>Best For</td>
+                        <td class="best-for-cell">Fine dining, wine bars</td>
+                        <td class="best-for-cell">Fast-casual, urban spots</td>
+                        <td class="best-for-cell">Family restaurants, classic pizzerias</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 <a href="https://avcoindustries.com">Avco Industries</a>. All templates are fully customizable.</p>
+        </footer>
+    </div>
+</body>
+</html>
