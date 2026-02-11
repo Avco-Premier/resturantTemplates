@@ -116,7 +116,7 @@
         /* Template Cards */
         .templates-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-bottom: 60px;
         }
@@ -179,6 +179,13 @@
         .template-3 .template-preview-inner {
             background: linear-gradient(135deg, #722f37 0%, #5a252c 100%);
             color: rgba(221, 161, 94, 0.25);
+        }
+
+        /* Template 4 - Contemporary */
+        .template-4 .template-preview-inner {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-right: 4px solid #3498db;
+            color: rgba(52, 152, 219, 0.2);
         }
 
         .template-card:hover .template-preview-inner {
@@ -333,9 +340,10 @@
             align-items: center;
             gap: 8px;
         }
-
-        .template-dot {
-            width: 10px;
+        .template-dot.t1 { background: #8b7355; }
+        .template-dot.t2 { background: #e63527; }
+        .template-dot.t3 { background: #722f37; }
+        .template-dot.t4 { background: #3498db; }
             height: 10px;
             border-radius: 50%;
         }
@@ -364,14 +372,20 @@
         }
 
         .footer a {
-            color: var(--avco-blue);
-            text-decoration: none;
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .templates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
+        @media (max-width: 900px) {
+            .templates-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+            }
         /* Responsive */
         @media (max-width: 900px) {
             .templates-grid {
@@ -448,20 +462,6 @@
                 <div class="template-content">
                     <span class="template-number">Template 02</span>
                     <h3 class="template-name">Bold Modern</h3>
-                    <p class="template-description">High-contrast design with geometric layouts and contemporary energy.</p>
-                    <div class="template-tags">
-                        <span class="tag">Fast-Casual</span>
-                        <span class="tag">Urban Spots</span>
-                    </div>
-                </div>
-                <div class="view-btn">
-                    View Template
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                </div>
-            </a>
-
             <!-- Template 3 -->
             <a href="temp3.html" class="template-card template-3">
                 <div class="template-preview">
@@ -483,23 +483,66 @@
                     </svg>
                 </div>
             </a>
-        </div>
 
-        <!-- Comparison Table -->
-        <section class="comparison-section">
-            <div class="comparison-header">
-                <h2>Template Comparison</h2>
-                <p>A quick overview of each template's design characteristics</p>
-            </div>
-            <table class="comparison-table">
+            <!-- Template 4 -->
+            <a href="temp4.html" class="template-card template-4">
+                <div class="template-preview">
+                    <div class="template-preview-inner">04</div>
+                </div>
+                <div class="template-content">
+                    <span class="template-number">Template 04</span>
+                    <h3 class="template-name">Contemporary Fresh</h3>
                 <thead>
                     <tr>
                         <th>Feature</th>
                         <th><span class="template-indicator"><span class="template-dot t1"></span> Refined Parallax</span></th>
                         <th><span class="template-indicator"><span class="template-dot t2"></span> Bold Modern</span></th>
                         <th><span class="template-indicator"><span class="template-dot t3"></span> Vintage Classic</span></th>
+                        <th><span class="template-indicator"><span class="template-dot t4"></span> Contemporary Fresh</span></th>
                     </tr>
                 </thead>
+                    <tr>
+                        <td>Typography</td>
+                        <td>Cormorant Garamond + Montserrat</td>
+                        <td>Bebas Neue + DM Sans</td>
+                        <td>Playfair Display + Lora</td>
+                        <td>Poppins + Source Sans Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Color Palette</td>
+                        <td>Warm browns, cream, gold</td>
+                        <td>Black, red, cream, green</td>
+                        <td>Burgundy, cream, olive, gold</td>
+                        <td>Blue, white, light gray, green</td>
+                    </tr>
+                    <tr>
+                        <td>Layout Style</td>
+                        <td>Parallax scrolling, centered</td>
+                        <td>Grid-based, asymmetric</td>
+                        <td>Traditional, framed elements</td>
+                        <td>Clean sections, minimal spacing</td>
+                    </tr>
+                    <tr>
+                        <td>Vibe</td>
+                        <td>Upscale trattoria</td>
+                        <td>Contemporary NYC pizzeria</td>
+                        <td>Old-world Italian warmth</td>
+                        <td>Modern health-conscious cafe</td>
+                    </tr>
+                    <tr>
+                        <td>Key Elements</td>
+                        <td>Soft overlays, nav dots, serifs</td>
+                        <td>Outlined text, marquee, stats</td>
+                        <td>Decorative borders, textures</td>
+                        <td>Clean cards, subtle shadows</td>
+                    </tr>
+                    <tr>
+                        <td>Best For</td>
+                        <td class="best-for-cell">Fine dining, wine bars</td>
+                        <td class="best-for-cell">Fast-casual, urban spots</td>
+                        <td class="best-for-cell">Family restaurants, classic pizzerias</td>
+                        <td class="best-for-cell">Cafes, health food restaurants</td>
+                    </tr>
                 <tbody>
                     <tr>
                         <td>Typography</td>
