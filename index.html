@@ -340,10 +340,9 @@
             align-items: center;
             gap: 8px;
         }
-        .template-dot.t1 { background: #8b7355; }
-        .template-dot.t2 { background: #e63527; }
-        .template-dot.t3 { background: #722f37; }
-        .template-dot.t4 { background: #3498db; }
+
+        .template-dot {
+            width: 10px;
             height: 10px;
             border-radius: 50%;
         }
@@ -351,6 +350,7 @@
         .template-dot.t1 { background: #8b7355; }
         .template-dot.t2 { background: #e63527; }
         .template-dot.t3 { background: #722f37; }
+        .template-dot.t4 { background: #3498db; }
 
         /* Best For Row */
         .best-for-cell {
@@ -372,6 +372,14 @@
         }
 
         .footer a {
+            color: var(--avco-blue);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--avco-blue-light);
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .templates-grid {
@@ -379,14 +387,6 @@
             }
         }
 
-        @media (max-width: 900px) {
-            .templates-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        /* Responsive */
         @media (max-width: 900px) {
             .templates-grid {
                 grid-template-columns: 1fr;
@@ -446,12 +446,12 @@
                         <span class="tag">Wine Bars</span>
                     </div>
                 </div>
-                <div class="view-btn">
+                <button class="view-btn">
                     View Template
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                </div>
+                </button>
             </a>
 
             <!-- Template 2 -->
@@ -462,6 +462,20 @@
                 <div class="template-content">
                     <span class="template-number">Template 02</span>
                     <h3 class="template-name">Bold Modern</h3>
+                    <p class="template-description">Strong contrast, outlined headlines, and contemporary layout for urban vibes.</p>
+                    <div class="template-tags">
+                        <span class="tag">Fast Casual</span>
+                        <span class="tag">Urban Spots</span>
+                    </div>
+                </div>
+                <button class="view-btn">
+                    View Template
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </button>
+            </a>
+
             <!-- Template 3 -->
             <a href="temp3.html" class="template-card template-3">
                 <div class="template-preview">
@@ -469,19 +483,19 @@
                 </div>
                 <div class="template-content">
                     <span class="template-number">Template 03</span>
-                    <h3 class="template-name">Vintage Classic</h3>
-                    <p class="template-description">Old-world charm with rich colors, elegant borders, and nostalgic warmth.</p>
+                    <h3 class="template-name">Vintage Italian</h3>
+                    <p class="template-description">Classic Italian restaurant design with warm, traditional styling and decorative elements.</p>
                     <div class="template-tags">
-                        <span class="tag">Family Restaurants</span>
-                        <span class="tag">Classic Pizzerias</span>
+                        <span class="tag">Family Dining</span>
+                        <span class="tag">Classic Pizzeria</span>
                     </div>
                 </div>
-                <div class="view-btn">
+                <button class="view-btn">
                     View Template
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                </div>
+                </button>
             </a>
 
             <!-- Template 4 -->
@@ -491,94 +505,80 @@
                 </div>
                 <div class="template-content">
                     <span class="template-number">Template 04</span>
-                    <h3 class="template-name">Contemporary Fresh</h3>
+                    <h3 class="template-name">Premium Video</h3>
+                    <p class="template-description">Immersive video backgrounds with a sleek, contemporary interface.</p>
+                    <div class="template-tags">
+                        <span class="tag">Premium Dining</span>
+                        <span class="tag">Video Background</span>
+                    </div>
+                </div>
+                <button class="view-btn">
+                    View Template
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </button>
+            </a>
+        </div>
+    
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <div class="comparison-header">
+                <h2>Template Comparison</h2>
+                <p>Choose the perfect style for your restaurant</p>
+            </div>
+            <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Feature</th>
                         <th><span class="template-indicator"><span class="template-dot t1"></span> Refined Parallax</span></th>
                         <th><span class="template-indicator"><span class="template-dot t2"></span> Bold Modern</span></th>
-                        <th><span class="template-indicator"><span class="template-dot t3"></span> Vintage Classic</span></th>
-                        <th><span class="template-indicator"><span class="template-dot t4"></span> Contemporary Fresh</span></th>
+                        <th><span class="template-indicator"><span class="template-dot t3"></span> Vintage Italian</span></th>
+                        <th><span class="template-indicator"><span class="template-dot t4"></span> Premium Video</span></th>
                     </tr>
                 </thead>
-                    <tr>
-                        <td>Typography</td>
-                        <td>Cormorant Garamond + Montserrat</td>
-                        <td>Bebas Neue + DM Sans</td>
-                        <td>Playfair Display + Lora</td>
-                        <td>Poppins + Source Sans Pro</td>
-                    </tr>
-                    <tr>
-                        <td>Color Palette</td>
-                        <td>Warm browns, cream, gold</td>
-                        <td>Black, red, cream, green</td>
-                        <td>Burgundy, cream, olive, gold</td>
-                        <td>Blue, white, light gray, green</td>
-                    </tr>
-                    <tr>
-                        <td>Layout Style</td>
-                        <td>Parallax scrolling, centered</td>
-                        <td>Grid-based, asymmetric</td>
-                        <td>Traditional, framed elements</td>
-                        <td>Clean sections, minimal spacing</td>
-                    </tr>
-                    <tr>
-                        <td>Vibe</td>
-                        <td>Upscale trattoria</td>
-                        <td>Contemporary NYC pizzeria</td>
-                        <td>Old-world Italian warmth</td>
-                        <td>Modern health-conscious cafe</td>
-                    </tr>
-                    <tr>
-                        <td>Key Elements</td>
-                        <td>Soft overlays, nav dots, serifs</td>
-                        <td>Outlined text, marquee, stats</td>
-                        <td>Decorative borders, textures</td>
-                        <td>Clean cards, subtle shadows</td>
-                    </tr>
-                    <tr>
-                        <td>Best For</td>
-                        <td class="best-for-cell">Fine dining, wine bars</td>
-                        <td class="best-for-cell">Fast-casual, urban spots</td>
-                        <td class="best-for-cell">Family restaurants, classic pizzerias</td>
-                        <td class="best-for-cell">Cafes, health food restaurants</td>
-                    </tr>
                 <tbody>
                     <tr>
                         <td>Typography</td>
                         <td>Cormorant Garamond + Montserrat</td>
                         <td>Bebas Neue + DM Sans</td>
                         <td>Playfair Display + Lora</td>
+                        <td>Montserrat + Open Sans</td>
                     </tr>
                     <tr>
                         <td>Color Palette</td>
                         <td>Warm browns, cream, gold</td>
                         <td>Black, red, cream, green</td>
                         <td>Burgundy, cream, olive, gold</td>
+                        <td>Deep blues, charcoal, white</td>
                     </tr>
                     <tr>
                         <td>Layout Style</td>
                         <td>Parallax scrolling, centered</td>
                         <td>Grid-based, asymmetric</td>
                         <td>Traditional, framed elements</td>
+                        <td>Hero video, minimal sections</td>
                     </tr>
                     <tr>
                         <td>Vibe</td>
                         <td>Upscale trattoria</td>
                         <td>Contemporary NYC pizzeria</td>
                         <td>Old-world Italian warmth</td>
+                        <td>High-end modern</td>
                     </tr>
                     <tr>
                         <td>Key Elements</td>
                         <td>Soft overlays, nav dots, serifs</td>
                         <td>Outlined text, marquee, stats</td>
                         <td>Decorative borders, textures</td>
+                        <td>Autoplay video, subtle overlays</td>
                     </tr>
                     <tr>
                         <td>Best For</td>
                         <td class="best-for-cell">Fine dining, wine bars</td>
                         <td class="best-for-cell">Fast-casual, urban spots</td>
                         <td class="best-for-cell">Family restaurants, classic pizzerias</td>
+                        <td class="best-for-cell">Premium dining, modern venues</td>
                     </tr>
                 </tbody>
             </table>
